@@ -1,0 +1,46 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      TDSI
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+      <ion-card-header>
+        <ion-card-title>
+          TDSI - LACCGAA 
+        </ion-card-title>
+        <ion-img src="{{ contact.logo }}"></ion-img>
+      </ion-card-header>
+
+      <ion-list>
+        <ion-item>
+         Name: <strong>{{ contact.name }}</strong>
+        </ion-item>
+        <ion-item>
+            Email: <strong>{{ contact.email }}</strong>
+          </ion-item>
+          <ion-item>
+              Tel: <strong>{{ contact.tel }}</strong>
+            </ion-item>
+      </ion-list>
+
+      <ion-card-content>
+        <ion-img src="{{ contact.loc }}"></ion-img>
+      </ion-card-content>
+
+  </ion-card>
+</ion-content>
+
+<!-- <ion-footer>
+  <ion-toolbar>
+    <ion-title>
+      Voici le footer
+    </ion-title>
+  </ion-toolbar>
+</ion-footer> -->

@@ -1,0 +1,55 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Meteo</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-card-content>
+      <ion-item>
+        <ion-label>Ville: </ion-label>
+        <ion-input type="text" [(ngModel)]="city"></ion-input>
+        <ion-button (click)="onLoadMeteo()">
+          <ion-icon name="search"></ion-icon>
+        </ion-button>
+      </ion-item>
+    </ion-card-content>
+    <ion-card *ngIf="dataMeteo">
+      <ion-card-content>
+        <ion-item>
+          City : <strong>{{ dataMeteo.name }}</strong> , Country : <strong>{{ dataMeteo.sys.country }}</strong>
+        </ion-item>
+        <ion-item>
+          Lat : <strong>{{ dataMeteo.coord.lat | number:'0.0' }}</strong> , Lon : <strong>{{ dataMeteo.coord.lon | number:'0.0' }}</strong>
+        </ion-item>
+        <ion-item>
+          Temperature : <strong>{{ dataMeteo.main.temp - 273.15 | number:'0.0' }}</strong>
+        </ion-item>
+      </ion-card-content>
+      <ion-card *ngIf="dataMeteo">
+        <ion-card-content>
+          <ion-list>
+            <ion-item *ngFor="let met of dataMeteo.weather">
+              <ion-avatar slot="start"><ion-img src="assets/images/{{ met.main }}.PNG"></ion-img></ion-avatar>
+              <ion-list>
+                  <ion-item>
+                    <strong>{{ dataMeteo.dt * 1000 | date:'dd/MM/yyyy - HH-mm'}}</strong>
+                  </ion-item>
+                <ion-item>
+                  Min : <strong>{{ dataMeteo.main.temp_min - 273.15 | number:'0.0' }}</strong>
+                </ion-item>
+                <ion-item>
+                  Max : <strong>{{ dataMeteo.main.temp_max - 273.15 | number:'0.0' }}</strong>
+                </ion-item>
+              </ion-list>
+            </ion-item>
+          </ion-list>
+        </ion-card-content>
+      </ion-card>
+    </ion-card>
+  </ion-card>
+</ion-content>
