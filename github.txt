@@ -1,0 +1,7 @@
+### Envoyer son code sur github
+
+1. git add -all # Ajout des fichiers a envoyer
+
+2. git commit -m "message" #Faire un commit pour chager les fichiers
+
+3. git push origin master #Envoyer les fichiers sur son repot github
