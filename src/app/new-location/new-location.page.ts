@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Place } from '../model/place.model';
 import { Geolocation } from '@ionic-native/Geolocation/ngx';
 import { LocationsService } from '../services/locations.service';
+import { Router } from '@angular/router';
+import { NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-new-location',
@@ -10,7 +12,8 @@ import { LocationsService } from '../services/locations.service';
 })
 export class NewLocationPage implements OnInit {
 
-  constructor(private geolocation: Geolocation, private locService: LocationsService) { }
+  constructor(private geolocation: Geolocation, private locService: LocationsService,
+              private navCtroller: NavController) { }
 
   ngOnInit() {
   }
@@ -24,6 +27,11 @@ export class NewLocationPage implements OnInit {
         latitude: resp.coords.latitude
       }
       this.locService.addLocation(value);
+      if(value) {
+        console.log('location ajoutee avec succes');
+      }
+      // this.router.navigateByUrl('/menu/locations');
+      this.navCtroller.back();
     });
   }
 

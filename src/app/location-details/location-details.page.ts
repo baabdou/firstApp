@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Place } from '../model/place.model';
+import { LocationsService } from '../services/locations.service';
 
 @Component({
   selector: 'app-location-details',
@@ -7,9 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LocationDetailsPage implements OnInit {
 
-  constructor() { }
+  private curentPlace: Place;
+
+  constructor(private locService: LocationsService) { }
 
   ngOnInit() {
+    this.locService.currentPlace = this.curentPlace;
+    console.log(this.curentPlace);
   }
 
 }

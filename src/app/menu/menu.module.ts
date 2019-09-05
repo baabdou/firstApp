@@ -17,6 +17,7 @@ const routes: Routes = [
       { path: 'meteo', loadChildren: '../meteo/meteo.module#MeteoPageModule' },
       { path: 'locations', loadChildren: '../locations/locations.module#LocationsPageModule' },
       { path: 'new-location', loadChildren: '../new-location/new-location.module#NewLocationPageModule' },
+      { path: 'location-details', loadChildren: '../location-details/location-details.module#LocationDetailsPageModule' }
     ]
   }
 ];
